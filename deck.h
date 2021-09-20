@@ -1,21 +1,25 @@
-#include <string>
-#include <vector>
-#include "card.h"
+#ifndef DECK_H
+#define DECK_H
 
-class deck : public card
+#include "card.h"
+#include <vector>
+
+class deck
 {
     public:
         deck();
-        void makeCard(int val);
+        void makeDeck();
+        virtual ~deck();
         int getDeckSize();
-        void validateDeck();
-        std::string tostring();
 
     private:
-    int deckSize;
-    int cardsInDeck;
-    std::vector< card > deckCards;
+        int deckSize;
+        int maxSize = 52;
+        int type;
 
-
-
+        class card * newpntr;
+       
+        std::vector< class card * > gameDeck();
 };
+
+#endif

@@ -1,18 +1,33 @@
+#ifndef CARD_H
+#define CARD_H
 
+#include "deck.h"
 
-class card 
-
+class card
 {
     protected:
-        card(int val);
-        card(card && obj);
+        
 
     public:
-        int getCard();
+        card(int val, int type, int num);
+        int getVal();
+        int getType();
+        card(const card &c);
+        card(card && obj);
         virtual ~card();
+        bool validCard();
 
+
+    
 
     private:
         card() = delete;
-        int cardVal;
+        int m_value;
+        int m_suit;
+        int m_cardNum;
+
+    friend class deck;
+
 };
+
+#endif
